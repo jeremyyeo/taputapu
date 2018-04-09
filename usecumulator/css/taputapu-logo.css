@@ -1,0 +1,24 @@
+.taputapu-logo {
+  display: grid;
+  grid-template-rows: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-self: center;
+  padding: 0px 10px 0px 10px;
+  border-bottom: 3px solid #000510;
+}
+
+.a1 {
+  margin-top: 20px;
+  background-color: #525860;
+  padding: 5px;
+}
+   
+.b1 {
+  margin-top: 10px;
+  background-color: #292F36;
+}
+   
+.c1 {
+  background-color: #000510;
+}
+   

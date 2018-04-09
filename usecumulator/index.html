@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WD55LFH');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Usecumulator: calculator for optimum fuel discount savings.">
+    <meta name="author" content="Jeremy Yeo">
+    <title>Usecumulator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel="stylesheet" href="css/taputapu-logo.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WD55LFH"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  <nav class="navbar is-fixed-top is-info" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="http://taputapu.jeremyyeo.com/usecumulator/">
+          <div class="taputapu-logo">
+            <div class="a1"></div>
+            <div class="b1"></div>
+            <div class="c1"></div>
+          </div>
+          Usecumulator
+        </a>
+      </div>
+      <div class="navbar-menu">
+          <div class="navbar-end">
+              <div class="navbar-item">
+                  <div class="field">
+                      <p class="control">
+                          <span class="button is-static">
+                              <span class="icon">
+                                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                              </span>
+                              <span>jｅᴦ℮мyyеo/aτ/ᶃmɑıΙ/dօτ/ϲoм</span>
+                            </span>
+                      </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </nav> 
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+          <div class="column is-4">
+              <p class="content has-text-justified">
+                  <strong>To use, or to accumulate, that is the question.</strong>
+                  Edit the fields below to see what the optimal strategy is for maximizing your <a href="https://www.aa.co.nz/aasmartfuel/">AA Smartfuel</a> discounts.
+                  Strategies are ranked by the highest amount saved <span class="tag is-info"><i class="fas fa-piggy-bank"></i></span> (equivalent to the 
+                  lowest amount spent <span class="tag is-info"><i class="fas fa-dollar-sign"></i></span>)
+                  and then by the number of refuelling steps <span class="tag is-info"><i class="fas fa-step-forward"></i></span> needed for a full tank.</p>
+              </p>
+              <div class="tile is-ancestor">
+                  <div class="tile is-6 is-vertical is-parent">
+                      <div class="tile box is-child">
+                          <div class="content is-small">
+                              <p class="title is-5">Fuel Price</p>
+                              <p>Current price of fuel. Live fuel prices can be found on <a href="https://stats.gaspy.nz/#/">Gaspy</a>.</p>
+                              <div class="field has-addons">
+                                  <p class="control">
+                                      <input class="input" type="number" value="2.00" step="0.01" min= "0.1" id="fuel-price"></input>
+                                  </p>
+                                  <p class="control">
+                                      <span class="button is-static">$ / litre</span>
+                                  </p>
+                              </div>
+                          </div>
+                      </div>                     
+                      <div class="tile box is-child notification is-light">                          
+                          <div class="content is-small">
+                              <p class="title is-5">Discount</p>
+                              <p>Discount ammount accumulated so far.</p>
+                              <div class="field has-addons is-marginless">
+                                  <p class="control">
+                                      <input class="input" type="number" value="0" id="initial-discount-amount"></input>
+                                  </p>
+                                  <p class="control">
+                                      <span class="button is-static">c / litre</span>
+                                  </p>
+                              </div>
+                              <p>Discount amount each time the minimum spend threshold is met.</p>
+                              <div class="field has-addons is-marginless">
+                                  <p class="control">
+                                      <input class="input" type="number" value="6" id="discount-amount"></input>
+                                  </p>
+                                  <p class="control">
+                                      <span class="button is-static">c / litre</span>
+                                  </p>
+                              </div>
+                              <p>Minimum spend needed to be eligible for the discount amount above.</p>
+                              <div class="field has-addons is-marginless">
+                                <p class="control">
+                                    <input class="input" type="number" value="40" id="discount-applies-spend"></input>
+                                </p>
+                                <p class="control">
+                                    <span class="button is-static">$</span>
+                                </p>
+                              </div>                              
+                             <p>Maximum litres of fuel that can be discounted.</p>
+                              <div class="field has-addons is-marginless">
+                                <p class="control">
+                                    <input class="input" type="number" value="50" id="max-discounted-litres"></input>
+                                </p>
+                                <p class="control">
+                                    <span class="button is-static">litres<span>
+                                </p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="tile is-6 is-vertical is-parent">
+                      <div class="tile box is-child">
+                          <div class="content is-small">
+                            <p class="title is-5">Vehicle Fuel Capacity</p>
+                            <p>According to <a href="https://en.wikipedia.org/wiki/Fuel_tank">Wikipedia</a>, the average maximum fuel capacity for a vehicle is between 45 to 60 litres.</p>
+                            <div class="field has-addons">
+                                <p class="control">
+                                    <input class="input" type="number" value="55" id="max-fuel"></input>
+                                </p>
+                                <p class="control">
+                                    <span class="button is-static">litres</span>
+                                </p>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="tile box is-child">
+                            <div class="content is-small">
+                              <p class="title is-5">Remaining Fuel</p>
+                              <p>Fuel remaining in the tank.</p>
+                              <div class="field has-addons is-marginless">
+                                  <p class="control">
+                                      <input class="input" type="number" value= "15" id="remaining-fuel"></input>
+                                  </p>
+                                  <p class="control">
+                                      <span class="button is-static">litres</span>
+                                  </p>
+                              </div>
+                              <div class="field has-addons is-marginless">
+                                  <p class="control">
+                                      <input class="input" type="number" id="remaining-fuel-p"></input>
+                                  </p>
+                                  <p class="control">
+                                      <span class="button is-static">%</span>
+                                  </p>
+                              </div>
+                              <p>Fuel needed for a full tank.</p>
+                              <div class="field has-addons is-marginless">
+                                <p class="control">
+                                    <input class="input" type="number" id="used-fuel" disabled></input>
+                                </p>
+                                <p class="control">
+                                    <span class="button is-static">litres</span>
+                                </p>
+                              </div>
+                              <div class="field has-addons is-marginless">
+                                  <p class="control">
+                                      <input class="input" type="number" id="used-fuel-p" disabled></input>
+                                  </p>
+                                  <p class="control">
+                                      <span class="button is-static">%</span>
+                                  </p>
+                              </div>
+                            </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="column">
+             <div class="box notification is-info">
+                 <div class="tile is-ancestor">
+                     <div class="tile is-vertical is-parent" id="results-box">
+                        <!-- new results box-->
+                        <div class="tile box is-child">
+                            <div class="content is-small">
+                                <p>No discounts used.</p>
+                                <ol>
+                                    <li>test</li>
+                                    <li>test2</li>
+                                </ol>
+                                <div class="field is-grouped is-grouped-multiline is-grouped-right">
+                                    <div class="control">
+                                      <div class="tags has-addons">
+                                        <span class="tag is-info"><i class="fas fa-dollar-sign"></i></span>
+                                        <span class="tag is-dark">130.00</span>
+                                      </div>
+                                    </div>
+                                    <div class="control">
+                                      <div class="tags has-addons">
+                                        <span class="tag is-info"><i class="fas fa-piggy-bank"></i></span>
+                                        <span class="tag is-dark">0.00</span>
+                                      </div>
+                                    </div>
+                                    <div class="control">
+                                      <div class="tags has-addons">
+                                        <span class="tag is-info"><i class="fas fa-step-forward"></i></span>
+                                        <span class="tag is-dark">1</span>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end results box -->
+                     </div>
+                 </div>
+             </div>
+          </div>
+      </div>
+    </div>
+  </section>
+  <script src="js/script.js"></script>
+  </body>
+</html>

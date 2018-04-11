@@ -3,6 +3,7 @@
  * It's my first JavaScript project.
  */
 var recalculateTimes = 0;
+var inputChanged = '';
 var resultsMaxSavings = [];
 var resultsMinSteps = [];
 
@@ -402,6 +403,7 @@ function calculate() {
   if (recalculateTimes > 0) {
     dataLayer.push({
       'event': 'recalculate',
+      'category': inputChanged,
       'times': recalculateTimes
     });
   }
@@ -410,6 +412,7 @@ function calculate() {
 
 // Input change recalculations
 document.getElementById('max-fuel').addEventListener('input', function(e) {
+  inputChanged = this.id;
   recalculateTimes += 1;
   var changedItem = this.id;
   console.log(changedItem);
@@ -423,6 +426,7 @@ document.getElementById('max-fuel').addEventListener('input', function(e) {
 });
 
 document.getElementById('remaining-fuel').addEventListener('input', function(e) {
+  inputChanged = this.id;
   recalculateTimes += 1;
   var changedItem = this.id;
   console.log(changedItem);
@@ -436,6 +440,7 @@ document.getElementById('remaining-fuel').addEventListener('input', function(e) 
 });
 
 document.getElementById('remaining-fuel-p').addEventListener('input', function(e) {
+  inputChanged = this.id;
   recalculateTimes += 1;
   var changedItem = this.id;
   console.log(changedItem);
@@ -450,6 +455,7 @@ document.getElementById('remaining-fuel-p').addEventListener('input', function(e
 });
 
 document.getElementById('fuel-price').addEventListener('input', function(e) {
+  inputChanged = this.id;
   recalculateTimes += 1;
   var changedItem = this.id;
   console.log(changedItem);
@@ -464,7 +470,8 @@ document.getElementById('fuel-price').addEventListener('input', function(e) {
   calculate(); 
 });
 
-document.getElementById('initial-discount-amount').addEventListener('input', function(e){
+document.getElementById('initial-discount-amount').addEventListener('input', function(e) {
+  inputChanged = this.id;
   recalculateTimes += 1;
   var changedItem = this.id;
   console.log(changedItem);
@@ -473,7 +480,8 @@ document.getElementById('initial-discount-amount').addEventListener('input', fun
   calculate();
 });
 
-document.getElementById('discount-amount').addEventListener('input', function(e){
+document.getElementById('discount-amount').addEventListener('input', function(e) {
+  inputChanged = this.id;
   recalculateTimes += 1;
   var changedItem = this.id;
   console.log(changedItem);
@@ -483,6 +491,7 @@ document.getElementById('discount-amount').addEventListener('input', function(e)
 });
 
 document.getElementById('discount-applies-spend').addEventListener('input', function(e) {
+  inputChanged = this.id;
   recalculateTimes += 1;
   var changedItem = this.id;
   console.log(changedItem);
@@ -497,6 +506,7 @@ document.getElementById('discount-applies-spend').addEventListener('input', func
 });
 
 document.getElementById('max-discounted-litres').addEventListener('input', function(e){
+  inputChanged = this.id;
   recalculateTimes += 1;
   var changedItem = this.id;
   console.log(changedItem);
